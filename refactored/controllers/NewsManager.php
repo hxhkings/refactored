@@ -68,7 +68,7 @@ class NewsManager implements Manager
 	 * of affected rows if execution succeeds
 	 *
 	 */
-	public function delete(int $id, Manager $manager)
+	public function delete(int $id, Manager $manager = NULL)
 	{
 		$comments = $manager->list();
 		$idsToDelete = [];
