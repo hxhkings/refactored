@@ -11,7 +11,7 @@ namespace App\Controllers;
 
 require("../vendor/autoload.php");
 
-use \App\Builders\News;
+
 use \App\Interfaces\Manager;
 
 /**
@@ -31,22 +31,14 @@ class NewsManager implements Manager
 	 * @return array List of all 
 	 * created news instances
 	 */
-	public function list()
+	public function list(\App\Interfaces\Builder $builder, array $row)
 	{
-		
-		$rows = self::$db->select('SELECT * FROM `news`');
-
-		$news = [];
-
-		foreach($rows as $row) {
-			$n = new News();
-			$news[] = $n->setId((int)$row['id'])
+			
+			return $builder->setId((int)$row['id'])
 			  ->setTitle($row['title'])
 			  ->setBody($row['body'])
 			  ->setCreatedAt($row['created_at']);
-		}
-
-		return $news;
+		
 	}
 
 	/**

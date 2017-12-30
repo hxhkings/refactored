@@ -12,7 +12,7 @@
 
 	interface Manager
 	{
-		public function list();
+		public function list(Builder $builder, array $row);
 		
 		public function delete(int $id, Manager $manager);
 	}

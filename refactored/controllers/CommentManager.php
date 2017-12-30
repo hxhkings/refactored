@@ -11,7 +11,7 @@ namespace App\Controllers;
 
 require("../vendor/autoload.php");
 
-use \App\Builders\Comment;
+
 use \App\Interfaces\Manager;
 
 /**
@@ -30,22 +30,16 @@ class CommentManager implements Manager
 	 * @return array List of all 
 	 * created comment instances
 	 */
-	public function list()
+	public function list(\App\Interfaces\Builder $builder, array $row)
 	{
 		
-		$rows = self::$db->select('SELECT * FROM `comment`');
-
-		$comments = [];
-
-		foreach($rows as $row) {
-			$n = new Comment();
-			$comments[] = $n->setId((int)$row['id'])
+				
+		return $builder->setId((int)$row['id'])
 			  ->setBody($row['body'])
 			  ->setCreatedAt($row['created_at'])
 			  ->setNewsId((int)$row['news_id']);
-		}
 		
-		return $comments;
+		
 	}
 
 	/**

@@ -73,9 +73,18 @@
 		} else {
 			
 			self::$db = new \App\Models\DB;
+			
 		}
 
 
+	}
+
+	public function select()
+	{
+		$classArr = explode('\\',__CLASS__);
+		$className = $classArr[count($classArr) - 1];
+		$name =  str_replace('Manager', '', lcfirst($className));
+		return self::$db->select("SELECT * FROM `$name`");
 	}
 
 	/**
