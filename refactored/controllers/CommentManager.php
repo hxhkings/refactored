@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The CommentManager Utility
+ * The CommentManager Controller
  *
  * PHP version 7
  */
@@ -21,7 +21,7 @@ use \App\Interfaces\Manager;
 class CommentManager implements Manager
 {
 	
-	use \App\Traits\InstanceTrait;
+	use \App\Traits\ModelAdapterTrait;
 
 	/**
 	 * List all comments

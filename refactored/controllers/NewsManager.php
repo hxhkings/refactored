@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The NewsManager Utility
+ * The NewsManager Controller
  *
  * PHP version 7
  */
@@ -22,7 +22,7 @@ class NewsManager implements Manager
 {
 
 
-	use \App\Traits\InstanceTrait;
+	use \App\Traits\ModelAdapterTrait;
 
 	/**
 	 * List all news

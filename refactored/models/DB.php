@@ -22,7 +22,32 @@ use \App\Config\DBConfig;
 class DB extends DBConfig
 {
 
-	use \App\Traits\InstanceTrait;
+	/**
+ 	 * Assigns PDO instance for DB Class
+ 	 *
+ 	 * @param void
+ 	 * @return void
+ 	 */
+ 	public function __construct()
+	{	
+
+			/**
+			 * Using try/catch avoids
+			 * indecent exposure of code errors
+			 * on the client
+			 *
+			 */
+			try{
+
+				$this->pdo = new \PDO($this->dsn, $this->user, $this->password);
+
+			} catch (PDOException $e) {
+				
+				exit($e->getMessage());
+			}
+
+
+	}
 
 	/**
 	 * Queries the database

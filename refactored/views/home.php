@@ -3,14 +3,11 @@
 namespace App;
 
  
-
-
-
-
 $newsArray = [];
 $commentArray = [];
-$newsRows = (new Controllers\NewsManager())->select();
-$commentRows = (new Controllers\CommentManager())->select();
+
+$newsRows = (new Controllers\NewsManager())->select(new Models\NewsModel);
+$commentRows = (new Controllers\CommentManager())->select(new Models\CommentModel);
 
 foreach ($newsRows as $row) {
 	$newsArray[] = (new Controllers\NewsManager())->list(new \App\Builders\News, $row);
