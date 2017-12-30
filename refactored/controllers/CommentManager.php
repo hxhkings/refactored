@@ -71,7 +71,7 @@ class CommentManager implements Manager
 	 * of affected rows if execution succeeds
 	 *
 	 */
-	public function delete(int $id, Manager $manager)
+	public function delete(int $id, Manager $manager = NULL)
 	{
 		
 		$sql = "DELETE FROM `comment` WHERE `id`=" . $id;
