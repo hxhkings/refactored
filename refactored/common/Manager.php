@@ -14,7 +14,7 @@
 	{
 		public function list(Builder $builder, array $row);
 		
-		public function delete(int $id, Manager $manager);
+		public function delete(int $id, Manager $manager = NULL);
 	}
 
 
